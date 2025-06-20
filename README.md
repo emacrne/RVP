@@ -12,7 +12,7 @@ A  Django-based asset management system for tracking tools and equipment, featur
 
 1. **Clone the repository:**
    ```sh
-   git clone [https://github.com/emacrne/RVP.git](https://github.com/emacrne/RVP.git)
+   git clone https://github.com/emacrne/RVP.git
    ```
 
 2. **Install dependencies:**
