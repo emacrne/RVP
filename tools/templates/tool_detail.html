@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 40px auto;">
+    <div class="card-header" style="background: #e12a26; color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; padding: 24px 32px;">
+        <h1 style="margin: 0; font-size: 2rem; font-weight: bold;">Tool Details</h1>
+    </div>
+    <div class="card-body" style="padding: 32px;">
+        <div class="tool-detail-table">
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Name:</span>
+                <span class="tool-detail-value">{{ tool.name }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Barcode:</span>
+                <span class="tool-detail-value">{{ tool.barcode }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Location:</span>
+                <span class="tool-detail-value">{{ tool.location }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Category:</span>
+                <span class="tool-detail-value">{{ tool.category }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Description:</span>
+                <span class="tool-detail-value">{{ tool.description }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Borrowed By:</span>
+                <span class="tool-detail-value">{{ tool.borrowed_by }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Borrow Date:</span>
+                <span class="tool-detail-value">{{ tool.borrow_date|date:"F d, Y" }}</span>
+            </div>
+            <div class="tool-detail-row">
+                <span class="tool-detail-label">Created At:</span>
+                <span class="tool-detail-value">{{ tool.created_at|date:"F d, Y, g:i a" }}</span>
+            </div>
+        </div>
+        <div class="tool-detail-actions">
+            <a href="{% url 'edit_tool' tool.id %}" class="btn btn-edit">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="{% url 'delete_tool' tool.id %}" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this tool?')">
+                <i class="fas fa-trash"></i> Delete
+            </a>
+            <a href="{% url 'home' %}" class="btn btn-back">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<style>
+.tool-detail-card {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.08);
+    padding: 40px 36px 32px 36px;
+}
+.tool-detail-title {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #222;
+    letter-spacing: 1px;
+}
+.tool-detail-table {
+    margin-bottom: 36px;
+}
+.tool-detail-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 22px;
+}
+.tool-detail-label {
+    width: 160px;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+}
+.tool-detail-value {
+    color: #444;
+    font-size: 1.08rem;
+    word-break: break-word;
+}
+.tool-detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 22px;
+    border-radius: 7px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    cursor: pointer;
+}
+.btn-edit {
+    background: #6c757d;
+    color: #fff;
+}
+.btn-edit:hover {
+    background: #5a6268;
+}
+.btn-delete {
+    background: #e12a26;
+    color: #fff;
+}
+.btn-delete:hover {
+    background: #dc2626;
+}
+.btn-back {
+    background: #e5e7eb;
+    color: #333;
+}
+.btn-back:hover {
+    background: #d1d5db;
+}
+</style>
+{% endblock %}
