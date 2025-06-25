@@ -4,15 +4,22 @@ A  Django-based asset management system for tracking tools and equipment, featur
 
 ## Features
 
+   ![Home](images/home.png)
 - **Add, edit, and delete tools** with fields for name, barcode, location, category, description, borrowed by, and borrow date.
+  ![Add Screenshot](images/add_tool.png)
+
 - **Barcode scanning** using your device’s camera (QuaggaJS) or manual entry.
+  ![Barcode Scanner](images/scan.png)
+  
 - **Filtering** by category, location, borrowed by, and borrow date (with multi-select).
+  ![Detail](images/tool_detail.png)
 
 ## Getting Started
 
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/emacrne/RVP.git
+   cd inventory_app
    ```
 
 2. **Install dependencies:**
@@ -27,6 +34,7 @@ A  Django-based asset management system for tracking tools and equipment, featur
 
 3. **Apply migrations:**
    ```sh
+   python manage.py makemigrations
    python manage.py migrate
    ```
 
