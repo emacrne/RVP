@@ -368,21 +368,22 @@ document.getElementById('scanButton').addEventListener('click', function() {
                     name: "Live",
                     type: "LiveStream",
                     constraints: {
-                        width: { min: 640, ideal: 1280, max: 1920 },
-                        height: { min: 480, ideal: 720, max: 1080 },
-                        facingMode: "environment",
-                        aspectRatio: { min: 1, max: 2 }
-                    },
-                    target: document.querySelector('#interactive')
+                width: { min: 320, ideal: 640, max: 1280 },
+                height: { min: 240, ideal: 480, max: 720 },
+                facingMode: "environment",
+                aspectRatio: { min: 1, max: 2 }
+                },
+                target: document.querySelector('#interactive')
                 },
                 decoder: {
                     readers: ["ean_reader", "code_128_reader"]
                 },
                 locator: {
-                    halfSample: true,
-                    patchSize: 'medium',
+                    halfSample: false,
+                    patchSize: 'small',
                 },
-                locate: false
+                numOfWorkers: 4,
+                locate: true
             }, function(err) {
                 if (err) {
                     console.log(err);

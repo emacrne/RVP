@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Tool(models.Model):
     id = models.CharField(primary_key=True, max_length=255, blank=True, null=False)
@@ -9,7 +10,7 @@ class Tool(models.Model):
     category = models.CharField(max_length=255, blank=True, null=True)
     borrowed_by = models.CharField(max_length=255, blank=True, null=True)
     borrow_date = models.DateField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

@@ -11,7 +11,6 @@ from .forms import ToolForm
 def home(request):
     tools = Tool.objects.all().order_by('-created_at')
 
-    # Get filter values from GET request
     category = request.GET.getlist('category')
     borrowed_by = request.GET.getlist('borrowed_by')
     borrow_date = request.GET.get('borrow_date', '')
@@ -106,7 +105,6 @@ def save_barcode(request):
     if request.method == 'POST':
         barcode_data = request.POST.get('barcode_data', None)
         if barcode_data:
-            # Check if tool exists with this barcode
             try:
                 tool = Tool.objects.get(barcode=barcode_data)
                 return JsonResponse({
@@ -126,7 +124,6 @@ def save_barcode(request):
             return JsonResponse({'status': 'error', 'message': 'No barcode data received'})
     return JsonResponse({'status': 'error', 'message': 'Invalid request'})
 
-# Add a new view to handle finding tools by barcode
 def find_tool_by_barcode(request, barcode):
     try:
         tool = Tool.objects.get(barcode=barcode)
